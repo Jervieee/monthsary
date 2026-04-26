@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Monthsary My Love</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="heartsCanvas"></canvas>
+    <canvas id="sparklesCanvas"></canvas>
+    
+    <div class="container">
+        <div class="title-section">
+            <h1 class="main-title">Happy Monthsary</h1>
+            <p class="subtitle">My Dearest Love</p>
+        </div>
+        
+        <div class="rose" id="rose">
+            <div class="petal petal1"></div>
+            <div class="petal petal2"></div>
+            <div class="petal petal3"></div>
+            <div class="petal petal4"></div>
+            <div class="petal petal5"></div>
+            <div class="petal petal6"></div>
+            <div class="center"></div>
+            <div class="shine"></div>
+            <div class="stem"></div>
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+            <div class="click-hint">Click me for love</div>
+        </div>
+        
+        <div class="message-container">
+            <div class="message-box">
+                <div class="message-content">
+                    <p id="typing-text"></p>
+                    <span class="cursor">|</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="photo-frame">
+            <div class="frame-inner">
+                <div class="photo-placeholder">
+                    <span class="heart-icon">&#10084;</span>
+                    <p>Our Special Moment</p>
+                </div>
+            </div>
+            <div class="frame-decoration">
+                <span class="dec-heart">&#10084;</span>
+                <span class="dec-heart">&#10084;</span>
+                <span class="dec-heart">&#10084;</span>
+                <span class="dec-heart">&#10084;</span>
+            </div>
+        </div>
+        
+        <div class="footer-message">
+            <p>Forever & Always Yours</p>
+            <div class="floating-hearts">
+                <span>&#10084;</span>
+                <span>&#10084;</span>
+                <span>&#10084;</span>
+            </div>
+        </div>
+            <div class="message" id="messageBox" style="display:none">
+                <h2 id="roseMessage"></h2>
+            </div>
+            <button id="revealBtn" class="reveal-btn">Reveal Message</button>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+    // Get message from URL
+    function getMessageFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('msg') || '';
+    }
+
+    const revealBtn = document.getElementById('revealBtn');
+    const messageBox = document.getElementById('messageBox');
+    const roseMessage = document.getElementById('roseMessage');
+
+    const msg = getMessageFromURL();
+    if (!msg) {
+        revealBtn.style.display = 'none';
+        messageBox.style.display = 'none';
+    } else {
+        revealBtn.addEventListener('click', function() {
+            roseMessage.textContent = msg;
+            messageBox.style.display = 'block';
+            revealBtn.style.display = 'none';
+        });
+    }
+    </script>
+</body>
+</html>
