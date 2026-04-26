@@ -83,9 +83,15 @@
     const roseMessage = document.getElementById('roseMessage');
 
     const msg = getMessageFromURL();
+    const defaultMsg = "I will always love you Jiybitot 387 days";
     if (!msg) {
-        revealBtn.style.display = 'none';
+        revealBtn.style.display = 'block';
         messageBox.style.display = 'none';
+        revealBtn.addEventListener('click', function() {
+            roseMessage.textContent = defaultMsg;
+            messageBox.style.display = 'block';
+            revealBtn.style.display = 'none';
+        });
     } else {
         revealBtn.addEventListener('click', function() {
             roseMessage.textContent = msg;
